@@ -1,9 +1,8 @@
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0/client";
-import { getSession } from "@auth0/nextjs-auth0";
-import { GetServerSideProps } from "next";
 
 export default function Home() {
   const { user } = useUser();
+  console.log("🚀 ~ file: index.tsx:5 ~ Home ~ user", user);
 
   return (
     <div>

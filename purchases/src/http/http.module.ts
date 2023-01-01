@@ -3,13 +3,13 @@ import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { DatabaseModule } from 'src/database/database.module';
 import path from 'node:path';
-import { ProductsResolver } from './graphql/resolvers/products.resolve';
+import { ProductsResolver } from './graphql/resolvers/products.resolver';
 import { ApolloDriver } from '@nestjs/apollo';
 import { ProductsService } from 'src/services/products.service';
-import { PurchasesResolve } from './graphql/resolvers/purchases.resolve';
+import { PurchasesResolve } from './graphql/resolvers/purchases.resolver';
 import { PurchasesService } from 'src/services/purchases.service';
 import { CustomersService } from 'src/services/cusrtomers.service';
-import { CustomersResolver } from './graphql/resolvers/customers.resolve';
+import { CustomersResolver } from './graphql/resolvers/customers.resolver';
 @Module({
   imports: [
     ConfigModule.forRoot(),

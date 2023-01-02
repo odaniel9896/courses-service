@@ -12,9 +12,11 @@ export type ApolloClientContext = GetServerSidePropsContext;
 
 export const withApollo = (Component: NextPage) => {
   return function Provider(props: any) {
-    <ApolloProvider client={getApolloClient(undefined, props.apolloState)}>
-      <Component {...props} />
-    </ApolloProvider>;
+    return (
+      <ApolloProvider client={getApolloClient(undefined, props.apolloState)}>
+        <Component />
+      </ApolloProvider>
+    );
   };
 };
 
@@ -24,12 +26,14 @@ export function getApolloClient(
 ) {
   const httpLink = createHttpLink({
     uri: "http://localhost:3000/api",
+    credentials: "same-origin",
     fetch,
   });
 
   const cache = new InMemoryCache().restore(ssrCache ?? {});
 
   return new ApolloClient({
+    ssrMode: true,
     link: from([httpLink]),
     cache,
   });

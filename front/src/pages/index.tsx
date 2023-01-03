@@ -131,15 +131,20 @@ function Home() {
                       <Link
                         href="#"
                         className="inline-flex items-center text-white bg-black rounded-full p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-gray-200"
+                        legacyBehavior
                       >
-                        <span className="px-3 py-0.5 text-white text-xs font-semibold leading-5 uppercase tracking-wide bg-gradient-to-r from-teal-500 to-cyan-600 rounded-full">
-                          Estamos contratando
-                        </span>
-                        <span className="ml-4 text-sm">Veja nossas vagas</span>
-                        <ChevronRightIcon
-                          className="ml-2 w-5 h-5 text-gray-500"
-                          aria-hidden="true"
-                        />
+                        <div>
+                          <span className="px-3 py-0.5 text-white text-xs font-semibold leading-5 uppercase tracking-wide bg-gradient-to-r from-teal-500 to-cyan-600 rounded-full">
+                            Estamos contratando
+                          </span>
+                          <span className="ml-4 text-sm">
+                            Veja nossas vagas
+                          </span>
+                          <ChevronRightIcon
+                            className="ml-2 w-5 h-5 text-gray-500"
+                            aria-hidden="true"
+                          />
+                        </div>
                       </Link>
                       <h1 className="mt-4 text-4xl tracking-tight font-extrabold text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
                         <span className="block">Cursos de</span>
@@ -286,22 +291,29 @@ function Home() {
                             <Link
                               href={post.category.href}
                               className="hover:underline"
+                              legacyBehavior
                             >
                               {post.category.name}
                             </Link>
                           </p>
-                          <Link href={post.href} className="block mt-2">
-                            <p className="text-xl font-semibold text-gray-900">
-                              {post.title}
-                            </p>
-                            <p className="mt-3 text-base text-gray-500">
-                              {post.preview}
-                            </p>
+                          <Link
+                            href={post.href}
+                            className="block mt-2"
+                            legacyBehavior
+                          >
+                            <div>
+                              <p className="text-xl font-semibold text-gray-900">
+                                {post.title}
+                              </p>
+                              <p className="mt-3 text-base text-gray-500">
+                                {post.preview}
+                              </p>
+                            </div>
                           </Link>
                         </div>
                         <div className="mt-6 flex items-center">
                           <div className="flex-shrink-0">
-                            <Link href={post.author.href}>
+                            <Link href={post.author.href} legacyBehavior>
                               <img
                                 className="h-10 w-10 rounded-full"
                                 src={post.author.imageUrl}
@@ -314,6 +326,7 @@ function Home() {
                               <Link
                                 href={post.author.href}
                                 className="hover:underline"
+                                legacyBehavior
                               >
                                 {post.author.name}
                               </Link>
